@@ -1,0 +1,70 @@
+﻿@page
+@model RazorPagesProduct.Pages.Products.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Product</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Product.Name" class="control-label"></label>
+                <input asp-for="Product.Name" class="form-control" />
+                <span asp-validation-for="Product.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Product.Thick" class="control-label"></label>
+                <input asp-for="Product.Thick" class="form-control" />
+                @*<select asp-for="Product.Thick" asp-items="Model.Product.Thicks" class="form-control"></select>*@
+                <span asp-validation-for="Product.Thick" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Product.Width" class="control-label"></label>
+                <input asp-for="Product.Width" class="form-control" />
+                <span asp-validation-for="Product.Width" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Product.Vertical" class="control-label"></label>
+                <input asp-for="Product.Vertical" class="form-control" />
+                <span asp-validation-for="Product.Vertical" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Product.Lid" class="control-label"></label>
+                <input asp-for="Product.Lid" class="form-control" />
+                <span asp-validation-for="Product.Lid" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Product.YahooModel" class="control-label"></label>
+                <input asp-for="Product.YahooModel" class="form-control" />
+                <span asp-validation-for="Product.YahooModel" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Product.FukuroinModel" class="control-label"></label>
+                <input asp-for="Product.FukuroinModel" class="form-control" />
+                <span asp-validation-for="Product.FukuroinModel" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Product.Category" class="control-label"></label>
+                <input asp-for="Product.Category" class="form-control" />
+                <span asp-validation-for="Product.Category" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

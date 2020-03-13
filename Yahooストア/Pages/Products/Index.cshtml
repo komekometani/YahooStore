@@ -1,0 +1,85 @@
+﻿@page
+@model RazorPagesProduct.Pages.Products.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<ul class="page-menu">
+    <li><a asp-page="Create">商品追加</a></li>
+    <li><a asp-page="Find">検索</a></li>
+</ul>
+<form asp-page="Generate">
+    <input type="text" name="CategoryName" class="col-10 form-control" />
+    <input type="submit" value="カテゴリを指定" class="col-2 btn btn-primary" />
+</form>
+<table class="table" id="product">
+    <thead>
+        <tr>
+            <th class="name">
+                @Html.DisplayNameFor(model => model.Product[0].Name)
+            </th>
+            <th class="thick">
+                @Html.DisplayNameFor(model => model.Product[0].Thick)
+            </th>
+            <th class="size">
+                @Html.DisplayNameFor(model => model.Product[0].Width)
+            </th>
+            <th class="size">
+                @Html.DisplayNameFor(model => model.Product[0].Vertical)
+            </th>
+            <th class="size">
+                @Html.DisplayNameFor(model => model.Product[0].Lid)
+            </th>
+            <th class="product-number">
+                @Html.DisplayNameFor(model => model.Product[0].YahooModel)
+            </th>
+            <th class="product-number">
+                @Html.DisplayNameFor(model => model.Product[0].FukuroinModel)
+            </th>
+            <th class="category">
+                @Html.DisplayNameFor(model => model.Product[0].Category)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Product) {
+        <tr>
+            <td>
+                @Html.Raw(item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Thick)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Width)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Vertical)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Lid)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.YahooModel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FukuroinModel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Category)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.ProductId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.ProductId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ProductId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+<link href="~/css/Products.css" rel="stylesheet" />

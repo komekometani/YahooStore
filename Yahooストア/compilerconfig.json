@@ -1,0 +1,18 @@
+﻿[
+  {
+    "outputFile": "wwwroot/css/YahooSidemenu.css",
+    "inputFile": "wwwroot/css/YahooSidemenu.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/Categories.css",
+    "inputFile": "wwwroot/css/Categories.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/Products.css",
+    "inputFile": "wwwroot/css/Products.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/YahooCushion.css",
+    "inputFile": "wwwroot/css/YahooCushion.scss"
+  }
+]

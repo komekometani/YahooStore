@@ -1,0 +1,9 @@
+﻿h1 {
+  margin-bottom: 20px; }
+
+.page-menu {
+  display: flex;
+  width: 300px;
+  padding: 0;
+  justify-content: space-between;
+  list-style: none; }

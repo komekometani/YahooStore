@@ -1,0 +1,23 @@
+﻿.page-menu {
+    display: flex;
+    width: 300px;
+    padding: 0;
+    justify-content: space-between;
+    list-style: none;
+}
+
+.table#product {
+    text-align: center;
+
+    .name{
+        width: 10%;
+    }
+
+    .thick{
+        width: 12%;
+    }
+
+    .size{
+        width: 5%;
+    }
+}

@@ -1,0 +1,105 @@
+﻿#Left {
+  float: left;
+  width: 244px; }
+  #Left .Left-inner {
+    margin: 0 10px 0 0; }
+    #Left .Left-inner #NaviStrSearch1 {
+      background-color: #FFFFEE;
+      margin: 10px 0 0;
+      text-align: left; }
+      #Left .Left-inner #NaviStrSearch1 h2.ptText {
+        border: 1px solid #336633;
+        border-bottom: none;
+        background-color: #339933;
+        color: #ffffff;
+        margin: 0;
+        padding: 4px;
+        font-size: x-small;
+        f\ont-size: small;
+        font-weight: bold;
+        text-align: center; }
+      #Left .Left-inner #NaviStrSearch1 .dvBody {
+        width: 100%;
+        w\idth: auto;
+        border-left: 1px solid #336633;
+        border-right: 1px solid #336633;
+        border-top: 1px solid #336633;
+        border-bottom: 1px solid #336633;
+        font-size: x-small;
+        f\ont-size: small; }
+        #Left .Left-inner #NaviStrSearch1 .dvBody .search {
+          padding: 5px;
+          text-align: center; }
+        #Left .Left-inner #NaviStrSearch1 .dvBody form {
+          margin: 0;
+          padding: 0; }
+      #Left .Left-inner #NaviStrSearch1 input.text {
+        width: 160px;
+        margin: 5px 0 9px;
+        padding: 0px; }
+    #Left .Left-inner #NaviStrCategory1 {
+      background-color: #FFFFEE;
+      margin: 10px 0 0 0;
+      text-align: left; }
+      #Left .Left-inner #NaviStrCategory1 .dvBody {
+        width: 100%;
+        w\idth: auto;
+        border-left: 1px solid #336633;
+        border-right: 1px solid #336633;
+        border-top: 1px solid #336633;
+        border-bottom: 1px solid #336633;
+        font-size: x-small;
+        f\ont-size: small; }
+        #Left .Left-inner #NaviStrCategory1 .dvBody ul {
+          padding: 0 9px 9px 0;
+          list-style: none;
+          line-height: 1.1em; }
+          #Left .Left-inner #NaviStrCategory1 .dvBody ul li {
+            margin-left: 20px;
+            text-indent: -12px;
+            margin-top: 8px; }
+            #Left .Left-inner #NaviStrCategory1 .dvBody ul li a {
+              text-decoration: underline; }
+            #Left .Left-inner #NaviStrCategory1 .dvBody ul li a:hover {
+              color: #32CD32; }
+    #Left .Left-inner #NaviFreeSpace1 {
+      width: 100%;
+      margin: 10px 0 0 0; }
+      #Left .Left-inner #NaviFreeSpace1 h3#standard-product-title {
+        background-color: #339933;
+        color: white;
+        text-align: center;
+        margin-bottom: 0;
+        text-align: center;
+        font-size: 16px;
+        font-weight: normal; }
+      #Left .Left-inner #NaviFreeSpace1 ul#standard-product-list {
+        list-style-type: none;
+        list-style-position: outside;
+        list-style-image: none;
+        display: flex;
+        flex-wrap: wrap;
+        padding-left: 0;
+        margin: 0; }
+        #Left .Left-inner #NaviFreeSpace1 ul#standard-product-list a {
+          width: 58px;
+          color: #0000ff;
+          background-color: #ffffee;
+          background-image: none;
+          background-repeat: repeat;
+          background-position: top left;
+          background-attachment: scroll;
+          text-decoration: none;
+          text-align: center;
+          border-width: 1px;
+          border-style: solid;
+          border-color: #9E9E9E;
+          height: 40px; }
+          #Left .Left-inner #NaviFreeSpace1 ul#standard-product-list a li {
+            padding-top: 10px;
+            padding-bottom: 10px;
+            padding-right: 0;
+            padding-left: 0; }
+        #Left .Left-inner #NaviFreeSpace1 ul#standard-product-list a:hover {
+          background-color: #9e9e9e;
+          opacity: 0.8; }

@@ -1,0 +1,62 @@
+﻿@page
+@model RazorPagesCategory.Pages.Categories.GenerateModel
+@{
+    ViewData["Title"] = "Yahooサイドメニュー";
+}
+
+<h1>Yahooサイドメニュー</h1>
+
+<div id="Left">
+    <div class="Left-inner">
+        <!-- naviStrSearch1 -->
+        <div id="NaviStrSearch1">
+            <h2 class="ptText">ストア内検索</h2>    <div class="dvBody">
+                <div class="search">
+                    <form name="form1" method="get" action="https://store.shopping.yahoo.co.jp/workupstore/search.html#CentSrchFilter1">
+                        <div><input name="p" type="text" class="text" value=""></div>
+                        <div><input src="https://s.yimg.jp/images/store/shp/bt/str_search.gif" alt="ストア内検索" type="image" onclick="void(this.form.submit());return false;"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- /naviStrSearch1 -->
+        <!-- naviStrCategory1 -->
+        <div id="NaviStrCategory1">
+
+            <div class="dvBody">
+                <ul>
+                    @foreach (var item in Model.Category)
+                    {
+                        <li>
+                            <a href="https://store.shopping.yahoo.co.jp/workupstore/a4a6a4c1a4.html"><img src="https://s.yimg.jp/images/store/shp/ic/arrow.gif" width="8" height="12" alt="→"></a>
+                            <a href="@Html.DisplayFor(modelItem => item.Url)">@Html.DisplayFor(modelItem => item.Name)</a>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+        <!-- /naviStrCategory1 -->
+        <!-- naviFreeSpace1 -->
+
+        <div id="NaviFreeSpace1">
+            <h3 id="standard-product-title" >規格から選ぶ</h3>
+            <ul id="standard-product-list" >
+                <a href="https://store.shopping.yahoo.co.jp/workupstore/a6a5b5a5a4.html" ><li>A6</li></a>
+                <a href="https://store.shopping.yahoo.co.jp/workupstore/a5a5b5a5a4.html" ><li>A5</li></a>
+                <a href="https://store.shopping.yahoo.co.jp/workupstore/a4a5b5a5a4.html" ><li>A4</li></a>
+                <a href="https://store.shopping.yahoo.co.jp/workupstore/a3a5b5a5a4.html" ><li>A3</li></a>
+                <a href="https://store.shopping.yahoo.co.jp/workupstore/b6a5b5a5a4.html" ><li>B6</li></a>
+                <a href="https://store.shopping.yahoo.co.jp/workupstore/b5a5b5a5a4.html" ><li>B5</li></a>
+                <a href="https://store.shopping.yahoo.co.jp/workupstore/b4a5b5a5a4.html" ><li>B4</li></a>
+                <a href="https://store.shopping.yahoo.co.jp/workupstore/b3a5b5a5a4.html" ><li>B3</li></a>
+                <a href="https://store.shopping.yahoo.co.jp/workupstore/b3d12a5b5a.html" ><li>角2</li></a>
+                <a href="https://store.shopping.yahoo.co.jp/workupstore/b3d13a5b5a.html" ><li>角3</li></a>
+                <a href="https://store.shopping.yahoo.co.jp/workupstore/c4b93a5b5a.html" ><li>長3</li></a>
+                <a href="https://store.shopping.yahoo.co.jp/workupstore/c4b94a5b5a.html" ><li>長4</li></a>
+            </ul>
+        </div>
+        <!-- /naviFreeSpace1 -->
+    </div>
+</div>
+
+<link href="~/css/YahooSidemenu.css" rel="stylesheet"/>

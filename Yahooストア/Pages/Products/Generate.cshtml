@@ -1,0 +1,67 @@
+﻿@page
+@model RazorPagesProduct.Pages.Products.GenerateModel
+@{
+    ViewData["Title"] = "Generate";
+}
+
+<h1>Generate</h1>
+
+<div class="row">
+    <table class="product-table">
+        <thead>
+            <tr>
+                <th class="product-name">
+                    @Model.ProductName <br />商品名
+                </th>
+                <th class="product-thick">
+                    厚み<br />ミクロン
+                </th>
+                <th class="product-size">
+                    ヨコ &times; タテ &plus; フタ(mm)
+                </th>
+                <th class="product-sheets">
+                    OPP袋<br />個包装
+                </th>
+                <th class="product-sheets">
+                    クラフト包装
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Product)
+            {
+                <tr>
+                    <td>
+                        @Html.Raw(item.Name)
+                    </td>
+                    <td>
+                        @Model.ThickJudge(item.Thick)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Width) &times; @Html.DisplayFor(modelItem => item.Vertical) &plus; @Html.DisplayFor(modelItem => item.Lid)
+                    </td>
+                    <td>
+                        @functions{
+                            string strURL100(string ModelNumber)
+                            {
+                                return "https://store.shopping.yahoo.co.jp/workupstore/" + ModelNumber + ".html";
+                            }
+                        }
+                        <a href="@strURL100(item.YahooModel)">100枚</a>
+                    </td>
+                    <td>
+                        @functions{
+                            string strURL1000(string ModelNumber)
+                            {
+                                return "https://store.shopping.yahoo.co.jp/workupstore/" + ModelNumber + "-z.html";
+                            }
+                        }
+                        <a href="@strURL1000(item.YahooModel)">1,000枚</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<link href="~/css/YahooCushion.css" rel="stylesheet" />
