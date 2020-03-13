@@ -5,16 +5,16 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
-using RazorPagesCategory.Models;
 using Yahooストア.Data;
+using Yahooストア.Models;
 
-namespace RazorPagesCategory.Pages.Categories
+namespace Yahooストア.Pages.Categories
 {
     public class IndexModel : PageModel
     {
-        private readonly Yahooストア.Data.RazorPagesCategoryContext _context;
+        private readonly Yahooストア.Data.YahooストアContext _context;
 
-        public IndexModel(Yahooストア.Data.RazorPagesCategoryContext context)
+        public IndexModel(Yahooストア.Data.YahooストアContext context)
         {
             _context = context;
         }

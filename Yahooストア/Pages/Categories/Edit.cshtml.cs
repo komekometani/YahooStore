@@ -6,16 +6,16 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using RazorPagesCategory.Models;
 using Yahooストア.Data;
+using Yahooストア.Models;
 
-namespace RazorPagesCategory.Pages.Categories
+namespace Yahooストア.Pages.Categories
 {
     public class EditModel : PageModel
     {
-        private readonly Yahooストア.Data.RazorPagesCategoryContext _context;
+        private readonly Yahooストア.Data.YahooストアContext _context;
 
-        public EditModel(Yahooストア.Data.RazorPagesCategoryContext context)
+        public EditModel(Yahooストア.Data.YahooストアContext context)
         {
             _context = context;
         }

@@ -5,17 +5,16 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
-using System.ComponentModel.DataAnnotations;
-using RazorPagesProduct.Models;
 using Yahooストア.Data;
+using Yahooストア.Models;
 
-namespace RazorPagesProduct.Pages.Products
+namespace Yahooストア.Pages.Products
 {
     public class IndexModel : PageModel
     {
-        private readonly Yahooストア.Data.RazorPagesProductContext _context;
+        private readonly Yahooストア.Data.YahooストアContext _context;
 
-        public IndexModel(Yahooストア.Data.RazorPagesProductContext context)
+        public IndexModel(Yahooストア.Data.YahooストアContext context)
         {
             _context = context;
         }
@@ -24,7 +23,8 @@ namespace RazorPagesProduct.Pages.Products
 
         public async Task OnGetAsync()
         {
-            Product = await _context.Product.ToListAsync();
+            Product = await _context.Product
+                .Include(p => p.Category).ToListAsync();
         }
     }
 }

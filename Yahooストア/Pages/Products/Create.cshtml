@@ -1,5 +1,5 @@
 ﻿@page
-@model RazorPagesProduct.Pages.Products.CreateModel
+@model Yahooストア.Pages.Products.CreateModel
 
 @{
     ViewData["Title"] = "Create";
@@ -21,7 +21,6 @@
             <div class="form-group">
                 <label asp-for="Product.Thick" class="control-label"></label>
                 <input asp-for="Product.Thick" class="form-control" />
-                @*<select asp-for="Product.Thick" asp-items="Model.Product.Thicks" class="form-control"></select>*@
                 <span asp-validation-for="Product.Thick" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -50,9 +49,8 @@
                 <span asp-validation-for="Product.FukuroinModel" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Product.Category" class="control-label"></label>
-                <input asp-for="Product.Category" class="form-control" />
-                <span asp-validation-for="Product.Category" class="text-danger"></span>
+                <label asp-for="Product.CategoryId" class="control-label"></label>
+                <select asp-for="Product.CategoryId" class ="form-control" asp-items="ViewBag.CategoryId"></select>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />

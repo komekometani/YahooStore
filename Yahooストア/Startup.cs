@@ -27,12 +27,8 @@ namespace Yahooストア
         {
             services.AddRazorPages();
 
-            services.AddDbContext<RazorPagesCategoryContext>(options =>
-                    options.UseSqlServer(Configuration.GetConnectionString("RazorPagesCategoryContext")));
-
-            services.AddDbContext<RazorPagesProductContext>(options =>
-                    options.UseSqlServer(Configuration.GetConnectionString("RazorPagesProductContext")));
-
+            services.AddDbContext<YahooストアContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("YahooストアContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

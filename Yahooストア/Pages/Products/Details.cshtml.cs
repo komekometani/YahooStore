@@ -5,16 +5,16 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
-using RazorPagesProduct.Models;
 using Yahooストア.Data;
+using Yahooストア.Models;
 
-namespace RazorPagesProduct.Pages.Products
+namespace Yahooストア.Pages.Products
 {
     public class DetailsModel : PageModel
     {
-        private readonly Yahooストア.Data.RazorPagesProductContext _context;
+        private readonly Yahooストア.Data.YahooストアContext _context;
 
-        public DetailsModel(Yahooストア.Data.RazorPagesProductContext context)
+        public DetailsModel(Yahooストア.Data.YahooストアContext context)
         {
             _context = context;
         }
@@ -28,7 +28,8 @@ namespace RazorPagesProduct.Pages.Products
                 return NotFound();
             }
 
-            Product = await _context.Product.FirstOrDefaultAsync(m => m.ProductId == id);
+            Product = await _context.Product
+                .Include(p => p.Category).FirstOrDefaultAsync(m => m.ProductId == id);
 
             if (Product == null)
             {

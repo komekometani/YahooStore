@@ -1,11 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc.Rendering;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
 
-namespace RazorPagesProduct.Models
+namespace Yahooストア.Models
 {
     public class Product
     {
@@ -16,14 +15,6 @@ namespace RazorPagesProduct.Models
 
         [Display(Name = "厚み(ミクロン)")]
         public int Thick { get; set; }
-        //public List<SelectListItem> Thicks { get; } = new List<SelectListItem>
-        //{
-        //    new SelectListItem { Value = "25", Text = "25" },
-        //    new SelectListItem { Value = "30", Text = "30" },
-        //    new SelectListItem { Value = "40", Text = "40"  },
-        //    new SelectListItem { Value = "50", Text = "50"  },
-        //    new SelectListItem { Value = "60", Text = "60"  }
-        //};
 
         [Display(Name = "ヨコ(mm)")]
         public int Width { get; set; }
@@ -35,12 +26,13 @@ namespace RazorPagesProduct.Models
         public int? Lid { get; set; }
 
         [Display(Name = "Yahoo型番")]
-        public string YahooModel{ get; set; }
+        public string YahooModel { get; set; }
 
         [Display(Name = "fukuro.in型番")]
         public string FukuroinModel { get; set; }
 
-        [Display(Name = "カテゴリ")]
-        public string Category { get; set; }
+        public int CategoryId { get; set; }
+
+        public Category Category { get; set; }
     }
 }

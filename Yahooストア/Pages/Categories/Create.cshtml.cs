@@ -5,16 +5,16 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using RazorPagesCategory.Models;
 using Yahooストア.Data;
+using Yahooストア.Models;
 
-namespace RazorPagesCategory.Pages.Categories
+namespace Yahooストア.Pages.Categories
 {
     public class CreateModel : PageModel
     {
-        private readonly Yahooストア.Data.RazorPagesCategoryContext _context;
+        private readonly Yahooストア.Data.YahooストアContext _context;
 
-        public CreateModel(Yahooストア.Data.RazorPagesCategoryContext context)
+        public CreateModel(Yahooストア.Data.YahooストアContext context)
         {
             _context = context;
         }

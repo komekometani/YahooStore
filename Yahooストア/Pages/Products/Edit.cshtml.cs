@@ -6,16 +6,16 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using RazorPagesProduct.Models;
 using Yahooストア.Data;
+using Yahooストア.Models;
 
-namespace RazorPagesProduct.Pages.Products
+namespace Yahooストア.Pages.Products
 {
     public class EditModel : PageModel
     {
-        private readonly Yahooストア.Data.RazorPagesProductContext _context;
+        private readonly Yahooストア.Data.YahooストアContext _context;
 
-        public EditModel(Yahooストア.Data.RazorPagesProductContext context)
+        public EditModel(Yahooストア.Data.YahooストアContext context)
         {
             _context = context;
         }
@@ -30,12 +30,14 @@ namespace RazorPagesProduct.Pages.Products
                 return NotFound();
             }
 
-            Product = await _context.Product.FirstOrDefaultAsync(m => m.ProductId == id);
+            Product = await _context.Product
+                .Include(p => p.Category).FirstOrDefaultAsync(m => m.ProductId == id);
 
             if (Product == null)
             {
                 return NotFound();
             }
+           ViewData["CategoryId"] = new SelectList(_context.Category, "CategoryId", "Name");
             return Page();
         }
 

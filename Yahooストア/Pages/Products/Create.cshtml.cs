@@ -5,24 +5,23 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using RazorPagesProduct.Models;
-using RazorPagesCategory.Models;
 using Yahooストア.Data;
-using Microsoft.EntityFrameworkCore;
+using Yahooストア.Models;
 
-namespace RazorPagesProduct.Pages.Products
+namespace Yahooストア.Pages.Products
 {
     public class CreateModel : PageModel
     {
-        private readonly Yahooストア.Data.RazorPagesProductContext _context;
+        private readonly Yahooストア.Data.YahooストアContext _context;
 
-        public CreateModel(Yahooストア.Data.RazorPagesProductContext context)
+        public CreateModel(Yahooストア.Data.YahooストアContext context)
         {
             _context = context;
         }
 
         public IActionResult OnGet()
         {
+        ViewData["Category"] = new SelectList(_context.Category, "CategoryId", "Name");
             return Page();
         }
 

@@ -1,5 +1,5 @@
 ﻿@page
-@model RazorPagesCategory.Pages.Categories.IndexModel
+@model Yahooストア.Pages.Categories.IndexModel
 
 @{
     ViewData["Title"] = "Index";
@@ -7,10 +7,9 @@
 
 <h1>Index</h1>
 
-<ul class="page-menu">
-    <li><a asp-page="Create">カテゴリ追加</a></li>
-    <li><a asp-page="Generate">サイドメニュー生成</a></li>
-</ul>
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
 <table class="table">
     <thead>
         <tr>
@@ -41,5 +40,3 @@
 }
     </tbody>
 </table>
-
-<link href="~/css/Categories.css" rel="stylesheet" />
