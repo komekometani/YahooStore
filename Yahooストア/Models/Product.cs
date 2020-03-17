@@ -31,6 +31,7 @@ namespace Yahooストア.Models
         [Display(Name = "fukuro.in型番")]
         public string FukuroinModel { get; set; }
 
+        [Display(Name = "カテゴリ名")]
         public int CategoryId { get; set; }
 
         public Category Category { get; set; }

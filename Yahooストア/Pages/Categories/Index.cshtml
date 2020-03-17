@@ -2,13 +2,13 @@
 @model Yahooストア.Pages.Categories.IndexModel
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "カテゴリ一覧";
 }
 
-<h1>Index</h1>
+<h1>カテゴリ一覧</h1>
 
 <p>
-    <a asp-page="Create">Create New</a>
+    <a asp-page="Create">新規作成</a>
 </p>
 <table class="table">
     <thead>
@@ -32,9 +32,9 @@
                 @Html.DisplayFor(modelItem => item.Url)
             </td>
             <td>
-                <a asp-page="./Edit" asp-route-id="@item.CategoryId">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.CategoryId">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.CategoryId">Delete</a>
+                <a asp-page="./Edit" asp-route-id="@item.CategoryId">編集</a> |
+                <a asp-page="./Details" asp-route-id="@item.CategoryId">詳細</a> |
+                <a asp-page="./Delete" asp-route-id="@item.CategoryId">削除</a>
             </td>
         </tr>
 }

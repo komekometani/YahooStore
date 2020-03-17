@@ -2,13 +2,18 @@
 @model Yahooストア.Pages.Products.IndexModel
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "商品一覧";
 }
 
-<h1>Index</h1>
+<h1>商品一覧</h1>
+
+<form asp-page="Generate">
+    <select asp-for="Categories" asp-items="Model.Categories" name="CategoryName"></select>
+    <input type="submit" value="カテゴリを指定" class="col-2 btn btn-primary" />
+</form>
 
 <p>
-    <a asp-page="Create">Create New</a>
+    <a asp-page="Create">新規作成</a>
 </p>
 <table class="table">
     <thead>
@@ -35,7 +40,7 @@
                 @Html.DisplayNameFor(model => model.Product[0].FukuroinModel)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Product[0].Category)
+                @Html.DisplayNameFor(model => model.Product[0].CategoryId)
             </th>
             <th></th>
         </tr>
@@ -68,9 +73,9 @@
                 @Html.DisplayFor(modelItem => item.Category.Name)
             </td>
             <td>
-                <a asp-page="./Edit" asp-route-id="@item.ProductId">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.ProductId">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.ProductId">Delete</a>
+                <a asp-page="./Edit" asp-route-id="@item.ProductId">編集</a> |
+                <a asp-page="./Details" asp-route-id="@item.ProductId">詳細</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ProductId">削除</a>
             </td>
         </tr>
 }

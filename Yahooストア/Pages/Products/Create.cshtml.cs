@@ -21,9 +21,10 @@ namespace Yahooストア.Pages.Products
 
         public IActionResult OnGet()
         {
-        ViewData["Category"] = new SelectList(_context.Category, "CategoryId", "Name");
+        ViewData["CategoryId"] = new SelectList(_context.Category, "CategoryId", "Name");
             return Page();
         }
+
 
         [BindProperty]
         public Product Product { get; set; }

@@ -2,14 +2,12 @@
 @model Yahooストア.Pages.Categories.DetailsModel
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "詳細";
 }
 
-<h1>Details</h1>
+<h1>詳細</h1>
 
 <div>
-    <h4>Category</h4>
-    <hr />
     <dl class="row">
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Category.Name)
@@ -26,6 +24,6 @@
     </dl>
 </div>
 <div>
-    <a asp-page="./Edit" asp-route-id="@Model.Category.CategoryId">Edit</a> |
-    <a asp-page="./Index">Back to List</a>
+    <a asp-page="./Edit" asp-route-id="@Model.Category.CategoryId">編集</a> |
+    <a asp-page="./Index">戻る</a>
 </div>
