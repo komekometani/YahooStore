@@ -32,8 +32,7 @@ namespace Yahooストア.Pages.Products
 
 
 
-            var CategoryList = await _context.Category.OrderBy(m => m.Name)
-                .Select(m => m.Name)
+            var CategoryList = await _context.Category.Select(m => m.Name)
                 .ToListAsync();
 
             Categories = new SelectList(CategoryList);

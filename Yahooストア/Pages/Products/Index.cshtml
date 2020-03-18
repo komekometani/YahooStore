@@ -8,29 +8,29 @@
 <h1>商品一覧</h1>
 
 <form asp-page="Generate">
-    <select asp-for="Categories" asp-items="Model.Categories" name="CategoryName"></select>
-    <input type="submit" value="カテゴリを指定" class="col-2 btn btn-primary" />
+    <select asp-items="Model.Categories" name="CategoryName"></select>
+    <input type="submit" value="クッションページ生成" class="col-2 btn btn-primary" />
 </form>
 
 <p>
     <a asp-page="Create">新規作成</a>
 </p>
-<table class="table">
+<table class="table" id="product">
     <thead>
         <tr>
-            <th>
+            <th class="name">
                 @Html.DisplayNameFor(model => model.Product[0].Name)
             </th>
-            <th>
+            <th class="thick">
                 @Html.DisplayNameFor(model => model.Product[0].Thick)
             </th>
-            <th>
+            <th class="size">
                 @Html.DisplayNameFor(model => model.Product[0].Width)
             </th>
-            <th>
+            <th class="size">
                 @Html.DisplayNameFor(model => model.Product[0].Vertical)
             </th>
-            <th>
+            <th class="size">
                 @Html.DisplayNameFor(model => model.Product[0].Lid)
             </th>
             <th>
@@ -49,7 +49,7 @@
 @foreach (var item in Model.Product) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Name)
+                @Html.Raw(item.Name)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Thick)
@@ -70,7 +70,7 @@
                 @Html.DisplayFor(modelItem => item.FukuroinModel)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Category.Name)
+                @Html.Raw(item.Category.Name)
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.ProductId">編集</a> |
@@ -81,3 +81,5 @@
 }
     </tbody>
 </table>
+
+<link href="~/css/Products.css" rel="stylesheet" />

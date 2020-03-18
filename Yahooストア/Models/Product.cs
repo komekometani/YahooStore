@@ -13,7 +13,7 @@ namespace Yahooストア.Models
         [Display(Name = "商品名")]
         public string Name { get; set; }
 
-        [Display(Name = "厚み(ミクロン)")]
+        [Display(Name = "厚み(μ)")]
         public int Thick { get; set; }
 
         [Display(Name = "ヨコ(mm)")]

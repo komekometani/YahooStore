@@ -4,7 +4,11 @@
     ViewData["Title"] = "Generate";
 }
 
-<h1>テーブル</h1>
+<h1>@Model.title</h1>
+
+<p>
+    <a asp-page="Create" class="btn btn-primary">新規追加</a>
+</p>
 
 <div class="row">
     <table class="product-table">
