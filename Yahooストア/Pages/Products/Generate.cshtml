@@ -21,7 +21,7 @@
                     厚み<br />ミクロン
                 </th>
                 <th class="product-size">
-                    ヨコ &times; タテ &plus; フタ(mm)
+                    ヨコ &times; タテ &plus; フタ &plus; ヘッダー(mm)
                 </th>
                 <th class="product-sheets">
                     OPP袋<br />個包装
@@ -32,7 +32,7 @@
             </tr>
         </thead>
         <tbody>
-            @foreach (var item in Model.Product)
+            @foreach (var item in Model.Products)
             {
                 <tr>
                     <td>
@@ -42,7 +42,7 @@
                         @Model.ThickJudge(item.Thick)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Width) &times; @Html.DisplayFor(modelItem => item.Vertical) &plus; @Html.DisplayFor(modelItem => item.Lid)
+                        @Html.DisplayFor(modelItem => item.Width) &times; @Html.DisplayFor(modelItem => item.Vertical) &plus; @Html.DisplayFor(modelItem => item.Lid) &plus; @Html.DisplayFor(modelItem => item.Header)
                     </td>
                     <td>
                         @functions{

@@ -15,6 +15,8 @@ namespace Yahooストア.Pages.Products
     {
         private readonly Yahooストア.Data.YahooストアContext _context;
 
+        public int? CategoryId { get; set; }
+
         public EditModel(Yahooストア.Data.YahooストアContext context)
         {
             _context = context;
@@ -31,13 +33,14 @@ namespace Yahooストア.Pages.Products
             }
 
             Product = await _context.Product
-                .Include(p => p.Category).FirstOrDefaultAsync(m => m.ProductId == id);
+                .Include(p => p.Category).FirstOrDefaultAsync(m => m.Id == id);
 
             if (Product == null)
             {
                 return NotFound();
             }
-           ViewData["CategoryId"] = new SelectList(_context.Category, "CategoryId", "Name");
+            CategoryId = Product.CategoryId;
+           ViewData["CategoryId"] = new SelectList(_context.Category, "Id", "Name");
             return Page();
         }
 
@@ -58,7 +61,7 @@ namespace Yahooストア.Pages.Products
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!ProductExists(Product.ProductId))
+                if (!ProductExists(Product.Id))
                 {
                     return NotFound();
                 }
@@ -68,12 +71,14 @@ namespace Yahooストア.Pages.Products
                 }
             }
 
-            return RedirectToPage("./Index");
+            CategoryId = Product.CategoryId;
+
+            return RedirectToPage("./Index", new { SearchCategoryId = CategoryId });
         }
 
         private bool ProductExists(int id)
         {
-            return _context.Product.Any(e => e.ProductId == id);
+            return _context.Product.Any(e => e.Id == id);
         }
     }
 }

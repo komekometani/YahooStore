@@ -30,7 +30,7 @@ namespace Yahooストア.Pages.Categories
                 return NotFound();
             }
 
-            Category = await _context.Category.FirstOrDefaultAsync(m => m.CategoryId == id);
+            Category = await _context.Category.FirstOrDefaultAsync(m => m.Id == id);
 
             if (Category == null)
             {
@@ -56,7 +56,7 @@ namespace Yahooストア.Pages.Categories
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!CategoryExists(Category.CategoryId))
+                if (!CategoryExists(Category.Id))
                 {
                     return NotFound();
                 }
@@ -71,7 +71,7 @@ namespace Yahooストア.Pages.Categories
 
         private bool CategoryExists(int id)
         {
-            return _context.Category.Any(e => e.CategoryId == id);
+            return _context.Category.Any(e => e.Id == id);
         }
     }
 }

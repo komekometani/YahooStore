@@ -40,6 +40,12 @@
             @Html.DisplayFor(model => model.Product.Lid)
         </dd>
         <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Product.Header)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Product.Header)
+        </dd>
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Product.YahooModel)
         </dt>
         <dd class="col-sm-10">
@@ -60,6 +66,6 @@
     </dl>
 </div>
 <div>
-    <a asp-page="./Edit" asp-route-id="@Model.Product.ProductId">編集</a> |
-    <a asp-page="./Index">戻る</a>
+    <a asp-page="./Edit" asp-route-id="@Model.Product.Id">編集</a> |
+    <a asp-page="Index" asp-route-SearchCategoryId="@Model.CategoryId">戻る</a>
 </div>

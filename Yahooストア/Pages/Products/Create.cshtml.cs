@@ -13,15 +13,17 @@ namespace Yahooストア.Pages.Products
     public class CreateModel : PageModel
     {
         private readonly Yahooストア.Data.YahooストアContext _context;
+        public int? CategoryId { get; set; }
 
         public CreateModel(Yahooストア.Data.YahooストアContext context)
         {
             _context = context;
         }
 
-        public IActionResult OnGet()
+        public IActionResult OnGet(int? defaultCategoryId)
         {
-        ViewData["CategoryId"] = new SelectList(_context.Category, "CategoryId", "Name");
+            CategoryId = defaultCategoryId;
+            ViewData["CategoryId"] = new SelectList(_context.Category, "Id", "Name", defaultCategoryId);
             return Page();
         }
 
@@ -31,7 +33,7 @@ namespace Yahooストア.Pages.Products
 
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
-        public async Task<IActionResult> OnPostAsync()
+        public async Task<IActionResult> OnPostAsync(int? defaultCategoryId)
         {
             if (!ModelState.IsValid)
             {
@@ -41,7 +43,7 @@ namespace Yahooストア.Pages.Products
             _context.Product.Add(Product);
             await _context.SaveChangesAsync();
 
-            return RedirectToPage("./Index");
+            return RedirectToPage("./Index",new { SearchCategoryId = defaultCategoryId });
         }
     }
 }

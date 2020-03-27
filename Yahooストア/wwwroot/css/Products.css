@@ -7,9 +7,17 @@
 
 .table#product {
   text-align: center; }
-  .table#product .name {
+  .table#product .product-name {
     width: 17%; }
   .table#product .thick {
     width: 6%; }
   .table#product .size {
-    width: 5%; }
+    width: 4%; }
+  .table#product .yahoo-number {
+    width: 13%; }
+  .table#product .fukuroin-number {
+    width: 12%; }
+  .table#product .category-name {
+    width: 15%; }
+  .table#product .editor {
+    width: 21%; }

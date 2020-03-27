@@ -8,7 +8,7 @@ namespace Yahooストア.Models
 {
     public class Product
     {
-        public int ProductId { get; set; }
+        public int Id { get; set; }
 
         [Display(Name = "商品名")]
         public string Name { get; set; }
@@ -24,6 +24,9 @@ namespace Yahooストア.Models
 
         [Display(Name = "フタ(mm)")]
         public int? Lid { get; set; }
+
+        [Display(Name = "ヘッダー(mm)")]
+        public int? Header { get; set; }
 
         [Display(Name = "Yahoo型番")]
         public string YahooModel { get; set; }

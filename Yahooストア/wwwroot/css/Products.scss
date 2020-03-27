@@ -9,15 +9,31 @@
 .table#product {
     text-align: center;
 
-    .name{
+    .product-name {
         width: 17%;
     }
 
-    .thick{
+    .thick {
         width: 6%;
     }
 
-    .size{
-        width: 5%;
+    .size {
+        width: 4%;
+    }
+
+    .yahoo-number {
+        width: 13%;
+    }
+
+    .fukuroin-number {
+        width: 12%;
+    }
+
+    .category-name {
+        width: 15%;
+    }
+
+    .editor {
+        width: 21%;
     }
 }

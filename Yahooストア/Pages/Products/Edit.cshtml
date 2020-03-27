@@ -11,7 +11,7 @@
     <div class="col-md-4">
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Product.ProductId" />
+            <input type="hidden" asp-for="Product.Id" />
             <div class="form-group">
                 <label asp-for="Product.Name" class="control-label"></label>
                 <input asp-for="Product.Name" class="form-control" />
@@ -38,6 +38,11 @@
                 <span asp-validation-for="Product.Lid" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="Product.Header" class="control-label"></label>
+                <input asp-for="Product.Header" class="form-control" />
+                <span asp-validation-for="Product.Header" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <label asp-for="Product.YahooModel" class="control-label"></label>
                 <input asp-for="Product.YahooModel" class="form-control" />
                 <span asp-validation-for="Product.YahooModel" class="text-danger"></span>
@@ -60,7 +65,7 @@
 </div>
 
 <div>
-    <a asp-page="./Index">戻る</a>
+    <a asp-page="Index" asp-route-SearchCategoryId="@Model.CategoryId">戻る</a>
 </div>
 
 @section Scripts {

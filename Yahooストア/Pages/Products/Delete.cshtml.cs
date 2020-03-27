@@ -14,6 +14,8 @@ namespace Yahooストア.Pages.Products
     {
         private readonly Yahooストア.Data.YahooストアContext _context;
 
+        public int? CategoryId { get; set; }
+
         public DeleteModel(Yahooストア.Data.YahooストアContext context)
         {
             _context = context;
@@ -30,12 +32,14 @@ namespace Yahooストア.Pages.Products
             }
 
             Product = await _context.Product
-                .Include(p => p.Category).FirstOrDefaultAsync(m => m.ProductId == id);
+                .Include(p => p.Category).FirstOrDefaultAsync(m => m.Id == id);
 
             if (Product == null)
             {
                 return NotFound();
             }
+
+            CategoryId = Product.CategoryId;
             return Page();
         }
 
@@ -54,7 +58,9 @@ namespace Yahooストア.Pages.Products
                 await _context.SaveChangesAsync();
             }
 
-            return RedirectToPage("./Index");
+            CategoryId = Product.CategoryId;
+
+            return RedirectToPage("./Index",new { SearchCategoryId = CategoryId });
         }
     }
 }

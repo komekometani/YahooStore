@@ -8,7 +8,7 @@ namespace Yahooストア.Models
 {
     public class Category
     {
-        public int CategoryId { get; set; }
+        public int Id { get; set; }
 
         [Display(Name = "カテゴリ名")]
         public string Name { get; set; }

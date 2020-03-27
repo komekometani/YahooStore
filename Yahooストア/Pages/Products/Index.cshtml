@@ -7,18 +7,28 @@
 
 <h1>商品一覧</h1>
 
-<form asp-page="Generate">
-    <select asp-items="Model.Categories" name="CategoryName"></select>
-    <input type="submit" value="クッションページ生成" class="col-2 btn btn-primary" />
+<form method="get">
+    <select asp-items="Model.Categories" asp-for="SearchCategoryId">
+        <option>-------</option>
+    </select>
+    <input type="text" asp-for="SearchKey" />
+    <input type="submit" value="検索" class="col-2 btn btn-primary" />
+    <input type="submit" value="クッションページ生成" class="col-2 btn btn-primary" formaction="/Products/Generate" />
+    
 </form>
 
+
+@*<form asp-page="Generate" method="get">
+    <select asp-items="Model.Categories" name="categoryId"></select>
+</form>*@
+
 <p>
-    <a asp-page="Create">新規作成</a>
+    <a asp-page="Create" asp-route-defaultCategoryId="@Model.SearchCategoryId">新規作成</a>
 </p>
 <table class="table" id="product">
     <thead>
         <tr>
-            <th class="name">
+            <th class="product-name">
                 @Html.DisplayNameFor(model => model.Product[0].Name)
             </th>
             <th class="thick">
@@ -33,16 +43,19 @@
             <th class="size">
                 @Html.DisplayNameFor(model => model.Product[0].Lid)
             </th>
-            <th>
+            <th class="size">
+                @Html.DisplayNameFor(model => model.Product[0].Header)
+            </th>
+            <th class="yahoo-number">
                 @Html.DisplayNameFor(model => model.Product[0].YahooModel)
             </th>
-            <th>
+            <th class="fukuroin-number">
                 @Html.DisplayNameFor(model => model.Product[0].FukuroinModel)
             </th>
-            <th>
+            <th class="category-name">
                 @Html.DisplayNameFor(model => model.Product[0].CategoryId)
             </th>
-            <th></th>
+            <th class="editor"></th>
         </tr>
     </thead>
     <tbody>
@@ -64,6 +77,9 @@
                 @Html.DisplayFor(modelItem => item.Lid)
             </td>
             <td>
+                @Html.DisplayFor(modelItem => item.Header)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.YahooModel)
             </td>
             <td>
@@ -73,9 +89,9 @@
                 @Html.Raw(item.Category.Name)
             </td>
             <td>
-                <a asp-page="./Edit" asp-route-id="@item.ProductId">編集</a> |
-                <a asp-page="./Details" asp-route-id="@item.ProductId">詳細</a> |
-                <a asp-page="./Delete" asp-route-id="@item.ProductId">削除</a>
+                <a asp-page="./Edit" asp-route-id="@item.Id">編集</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">詳細</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">削除</a>
             </td>
         </tr>
 }

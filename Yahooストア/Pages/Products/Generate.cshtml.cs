@@ -21,17 +21,14 @@ namespace Yahooストア.Pages.Products
             _context = context;
         }
 
-        public IList<Product> Product { get; set; }
+        public IList<Product> Products { get; set; }
 
-        public async Task OnGetAsync()
+        public async Task OnGetAsync(int searchCategoryId)
         {
-            Product = await _context.Product.Include(p => p.Category).ToListAsync();
-        }
+            var category = await _context.Category.FindAsync(searchCategoryId);
 
-        public async Task OnPostAsync(string CategoryName)
-        {
-            title = CategoryName;
-            Product = await _context.Product.Where(m => m.Category.Name == CategoryName).ToListAsync();
+            title = category.Name;
+            Products = await _context.Product.Where(m => m.CategoryId == searchCategoryId).ToListAsync();
         }
 
         public string ThickJudge(int Thick)

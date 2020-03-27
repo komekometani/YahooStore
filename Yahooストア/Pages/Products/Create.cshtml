@@ -37,6 +37,11 @@
                 <span asp-validation-for="Product.Lid" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="Product.Header" class="control-label"></label>
+                <input asp-for="Product.Header" class="form-control" />
+                <span asp-validation-for="Product.Header" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <label asp-for="Product.YahooModel" class="control-label"></label>
                 <input asp-for="Product.YahooModel" class="form-control" />
                 <span asp-validation-for="Product.YahooModel" class="text-danger"></span>
@@ -48,7 +53,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="Product.CategoryId" class="control-label"></label>
-                <select asp-for="Product.CategoryId" class ="form-control" asp-items="ViewBag.CategoryId"></select>
+                <select asp-for="Product.CategoryId" class="form-control" asp-items="ViewBag.CategoryId"></select>
             </div>
             <div class="form-group">
                 <input type="submit" value="作成" class="btn btn-primary" />
@@ -58,7 +63,7 @@
 </div>
 
 <div>
-    <a asp-page="Index">戻る</a>
+    <a asp-page="Index" asp-route-SearchCategoryId="@Model.CategoryId">戻る</a>
 </div>
 
 @section Scripts {
