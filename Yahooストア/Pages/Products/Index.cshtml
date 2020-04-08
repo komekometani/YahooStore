@@ -14,13 +14,13 @@
     <input type="text" asp-for="SearchKey" />
     <input type="submit" value="検索" class="col-2 btn btn-primary" />
     <input type="submit" value="クッションページ生成" class="col-2 btn btn-primary" formaction="/Products/Generate" />
-    
+
 </form>
 
 
 @*<form asp-page="Generate" method="get">
-    <select asp-items="Model.Categories" name="categoryId"></select>
-</form>*@
+        <select asp-items="Model.Categories" name="categoryId"></select>
+    </form>*@
 
 <p>
     <a asp-page="Create" asp-route-defaultCategoryId="@Model.SearchCategoryId">新規作成</a>
@@ -58,44 +58,59 @@
             <th class="editor"></th>
         </tr>
     </thead>
-    <tbody>
-@foreach (var item in Model.Product) {
-        <tr>
-            <td>
-                @Html.Raw(item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Thick)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Width)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Vertical)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Lid)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Header)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.YahooModel)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FukuroinModel)
-            </td>
-            <td>
-                @Html.Raw(item.Category.Name)
-            </td>
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.Id">編集</a> |
-                <a asp-page="./Details" asp-route-id="@item.Id">詳細</a> |
-                <a asp-page="./Delete" asp-route-id="@item.Id">削除</a>
-            </td>
-        </tr>
-}
+    <tbody id="product-body">
+        @foreach (var item in Model.Product)
+        {
+            <tr id="@Html.Raw(item.Id)">
+                <td>
+                    @Html.Raw(item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Thick)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Width)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Vertical)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Lid)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Header)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.YahooModel)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FukuroinModel)
+                </td>
+                <td>
+                    @Html.Raw(item.Category.Name)
+                </td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.Id">編集</a> |
+                    <a asp-page="./Details" asp-route-id="@item.Id">詳細</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.Id">削除</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
 
+<p id="log"></p>
+
 <link href="~/css/Products.css" rel="stylesheet" />
+
+@section Scripts{
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script>
+        $('#product-body').sortable({
+            update: function () {
+                var log = $(this).sortable("toArray");
+                $("#log").text(log);
+            }
+        });
+    </script>
+}

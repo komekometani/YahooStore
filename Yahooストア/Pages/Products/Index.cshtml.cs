@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Windows.Form;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -33,6 +34,24 @@ namespace Yahooストア.Pages.Products
 
         public async Task OnGetAsync(string searchKey,int? searchCategoryId = null)
         {
+            /*Product ord = new Product
+            {
+                Name = "test2",
+                Thick = 30,
+                Width = 0,
+                Vertical = 0,
+                Lid = 0,
+                Header = 0,
+                YahooModel = "test",
+                FukuroinModel = "test",
+                CategoryId = 32
+            };
+
+            // Add the new object to the Orders collection.
+            _context.Product.Attach(ord);
+            _context.Entry(ord).State = EntityState.Modified;
+            _context.SaveChanges();*/
+
             Product = await _context.Product.Include(p => p.Category).ToListAsync();
 
             if(!string.IsNullOrEmpty(searchKey))
@@ -48,17 +67,10 @@ namespace Yahooストア.Pages.Products
             {
                 Product = Product.Where(c => c.CategoryId == searchCategoryId).ToList();
             }
-
-            //var CategoryList = await _context.Category.Select(m => m.Name)
-            //    .ToListAsync();
-
-            //Categories = new SelectList(CategoryList);
             
             Categories = new SelectList(_context.Category, "Id", "Name");
 
             SearchCategoryId = searchCategoryId;
         }
-
-
     }
 }
