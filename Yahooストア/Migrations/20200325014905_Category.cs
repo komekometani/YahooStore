@@ -19,7 +19,7 @@ namespace Yahooストア.Migrations
                 table: "Category");
 
             migrationBuilder.DropColumn(
-                name: "ProductId",
+                name: "Id",
                 table: "Product");
 
             migrationBuilder.DropColumn(
@@ -82,7 +82,7 @@ namespace Yahooストア.Migrations
                 table: "Category");
 
             migrationBuilder.AddColumn<int>(
-                name: "ProductId",
+                name: "Id",
                 table: "Product",
                 type: "int",
                 nullable: false,
@@ -100,7 +100,7 @@ namespace Yahooストア.Migrations
             migrationBuilder.AddPrimaryKey(
                 name: "PK_Product",
                 table: "Product",
-                column: "ProductId");
+                column: "Id");
 
             migrationBuilder.AddPrimaryKey(
                 name: "PK_Category",
