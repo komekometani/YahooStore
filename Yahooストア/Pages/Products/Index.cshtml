@@ -108,9 +108,38 @@
     <script>
         $('#product-body').sortable({
             update: function () {
-                var log = $(this).sortable("toArray");
-                $("#log").text(log);
+                var list = $(this).sortable("toArray");
+                
+                changeList(list);
             }
         });
+        function changeList(list) {
+
+            var URL = 'https://localhost:44374/api/Products/525';
+
+            fetch(URL, {
+                method: 'PUT',
+                headers: {
+                    "Content-Type": "application/json; charset=utf-8"
+                },
+                body: JSON.stringify({
+                    id: 525,
+                    name: "change2",
+                    categoryId: 33,
+                    category: null
+                } || "null")                
+            })
+            .then((response) => response.json())
+            .then((json) => console.log(json))
+            .catch((error) => console.log(error));
+
+            /*for (var i = 0; i < list.length;i++) {
+                fetch(URL+list[i])
+                .then((response) => response.text())
+                .then((text) => console.log(text))
+                .catch((error) => console.log(error));
+            }*/
+            
+        }
     </script>
 }

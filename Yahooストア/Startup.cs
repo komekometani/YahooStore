@@ -10,6 +10,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Yahooストア.Data;
+using Microsoft.OpenApi.Models;
 
 namespace Yahooストア
 {
@@ -29,6 +30,13 @@ namespace Yahooストア
 
             services.AddDbContext<YahooストアContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("YahooストアContext")));
+            services.AddControllers();
+
+
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -48,6 +56,15 @@ namespace Yahooストア
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
+
+
+            app.UseSwagger();
+
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+            });
+
             app.UseRouting();
 
             app.UseAuthorization();
@@ -55,6 +72,7 @@ namespace Yahooストア
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapRazorPages();
+                endpoints.MapControllers();
             });
         }
     }

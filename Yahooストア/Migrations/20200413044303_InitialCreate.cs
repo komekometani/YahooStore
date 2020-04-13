@@ -2,7 +2,7 @@
 
 namespace Yahooストア.Migrations
 {
-    public partial class Category : Migration
+    public partial class InitialCreate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -11,27 +11,17 @@ namespace Yahooストア.Migrations
                 table: "Product");
 
             migrationBuilder.DropPrimaryKey(
-                name: "PK_Product",
-                table: "Product");
-
-            migrationBuilder.DropPrimaryKey(
                 name: "PK_Category",
                 table: "Category");
-
-            migrationBuilder.DropColumn(
-                name: "Id",
-                table: "Product");
 
             migrationBuilder.DropColumn(
                 name: "CategoryId",
                 table: "Category");
 
             migrationBuilder.AddColumn<int>(
-                name: "Id",
+                name: "Header",
                 table: "Product",
-                nullable: false,
-                defaultValue: 0)
-                .Annotation("SqlServer:Identity", "1, 1");
+                nullable: true);
 
             migrationBuilder.AddColumn<int>(
                 name: "Id",
@@ -39,11 +29,6 @@ namespace Yahooストア.Migrations
                 nullable: false,
                 defaultValue: 0)
                 .Annotation("SqlServer:Identity", "1, 1");
-
-            migrationBuilder.AddPrimaryKey(
-                name: "PK_Product",
-                table: "Product",
-                column: "Id");
 
             migrationBuilder.AddPrimaryKey(
                 name: "PK_Category",
@@ -66,28 +51,16 @@ namespace Yahooストア.Migrations
                 table: "Product");
 
             migrationBuilder.DropPrimaryKey(
-                name: "PK_Product",
-                table: "Product");
-
-            migrationBuilder.DropPrimaryKey(
                 name: "PK_Category",
                 table: "Category");
 
             migrationBuilder.DropColumn(
-                name: "Id",
+                name: "Header",
                 table: "Product");
 
             migrationBuilder.DropColumn(
                 name: "Id",
                 table: "Category");
-
-            migrationBuilder.AddColumn<int>(
-                name: "Id",
-                table: "Product",
-                type: "int",
-                nullable: false,
-                defaultValue: 0)
-                .Annotation("SqlServer:Identity", "1, 1");
 
             migrationBuilder.AddColumn<int>(
                 name: "CategoryId",
@@ -96,11 +69,6 @@ namespace Yahooストア.Migrations
                 nullable: false,
                 defaultValue: 0)
                 .Annotation("SqlServer:Identity", "1, 1");
-
-            migrationBuilder.AddPrimaryKey(
-                name: "PK_Product",
-                table: "Product",
-                column: "Id");
 
             migrationBuilder.AddPrimaryKey(
                 name: "PK_Category",

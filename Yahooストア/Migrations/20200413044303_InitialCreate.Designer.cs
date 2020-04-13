@@ -10,14 +10,14 @@ using Yahooストア.Data;
 namespace Yahooストア.Migrations
 {
     [DbContext(typeof(YahooストアContext))]
-    [Migration("20200325014905_Category")]
-    partial class Category
+    [Migration("20200413044303_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.1.1")
+                .HasAnnotation("ProductVersion", "3.1.3")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
